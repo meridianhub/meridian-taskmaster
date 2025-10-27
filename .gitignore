@@ -1,0 +1,16 @@
+# Node modules if using npm packages
+node_modules/
+
+# Backup files
+tasks/tasks.json.backup*
+*.backup
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,93 @@
+{
+	"meta": {
+		"generatedAt": "2025-10-24T16:58:12.412Z",
+		"tasksAnalyzed": 10,
+		"totalTasks": 10,
+		"analysisCount": 10,
+		"thresholdScore": 5,
+		"projectName": "Taskmaster",
+		"usedResearch": true
+	},
+	"complexityAnalysis": [
+		{
+			"taskId": 1,
+			"taskTitle": "Project Foundation and Build Infrastructure",
+			"complexityScore": 3,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Break down project foundation into: 1) Go module initialization and directory structure, 2) Linting and security tools setup (golangci-lint, gosec), 3) Makefile creation with common tasks, 4) .gitignore and basic documentation, 5) Validation and testing of build pipeline",
+			"reasoning": "Greenfield Go project setup is straightforward with established conventions. Directory structure and tooling are well-documented patterns. Low complexity due to standard Go ecosystem practices."
+		},
+		{
+			"taskId": 2,
+			"taskTitle": "Protocol Buffers and gRPC Service Definitions",
+			"complexityScore": 6,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Divide protobuf work into: 1) BIAN domain analysis and message schema design, 2) gRPC service interface definitions, 3) Build pipeline integration with protoc toolchain, 4) Validation rules and code generation verification",
+			"reasoning": "Moderate complexity due to BIAN compliance requirements and protobuf ecosystem setup. Requires understanding financial domain models and proper gRPC patterns. Code generation adds build complexity."
+		},
+		{
+			"taskId": 3,
+			"taskTitle": "Database Schema and Migration System",
+			"complexityScore": 7,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Break into: 1) Financial schema design with double-entry constraints, 2) Migration system setup and tooling, 3) Index optimization and performance considerations, 4) Decimal precision and multi-currency support, 5) Connection pooling and health checks",
+			"reasoning": "High complexity due to financial data integrity requirements, migration system setup, and distributed database considerations. Multi-currency and decimal precision add complexity."
+		},
+		{
+			"taskId": 4,
+			"taskTitle": "Core Domain Models and Business Logic",
+			"complexityScore": 8,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Divide into: 1) Domain entity design and value objects, 2) Double-entry validation logic implementation, 3) Multi-currency operation support, 4) Account balance and overdraft logic, 5) Domain events system, 6) Comprehensive unit testing of business rules",
+			"reasoning": "High complexity due to financial business logic correctness requirements. Double-entry accounting, multi-currency, and domain-driven design patterns require careful implementation and extensive testing."
+		},
+		{
+			"taskId": 5,
+			"taskTitle": "Repository Layer and Database Integration",
+			"complexityScore": 6,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Break down into: 1) Repository interface design and implementation, 2) Database transaction management and connection handling, 3) Integration testing with testcontainers, 4) Performance optimization and prepared statements",
+			"reasoning": "Moderate complexity due to repository pattern implementation and database integration. Testcontainers setup and transaction management add complexity but follow established patterns."
+		},
+		{
+			"taskId": 6,
+			"taskTitle": "gRPC Service Implementation and REST Gateway",
+			"complexityScore": 7,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Divide into: 1) gRPC service implementation for each domain, 2) Error handling and status code mapping, 3) grpc-gateway setup and REST API exposure, 4) Request validation integration, 5) Service coordination and testing",
+			"reasoning": "High complexity due to multiple service implementations, error handling across protocols, and gateway integration. Transaction coordination between services adds architectural complexity."
+		},
+		{
+			"taskId": 7,
+			"taskTitle": "Idempotency and Transaction Processing",
+			"complexityScore": 8,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Break into: 1) Redis-based idempotency key system, 2) Distributed locking implementation, 3) TTL management and cleanup, 4) Concurrent request handling, 5) Service restart resilience and testing",
+			"reasoning": "High complexity due to distributed systems concerns, concurrency handling, and state management across restarts. Redis integration and distributed locking require careful design."
+		},
+		{
+			"taskId": 8,
+			"taskTitle": "Event Streaming and Kafka Integration",
+			"complexityScore": 7,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Divide into: 1) Kafka producer setup and configuration, 2) Event schema design and serialization, 3) Ordering guarantees and partitioning strategy, 4) Dead letter queue handling, 5) Integration testing and reliability verification",
+			"reasoning": "High complexity due to distributed event streaming, ordering guarantees, and reliability requirements. Kafka ecosystem integration and event schema design add complexity."
+		},
+		{
+			"taskId": 9,
+			"taskTitle": "Observability and Health Monitoring",
+			"complexityScore": 6,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Break down into: 1) OpenTelemetry tracing setup, 2) Prometheus metrics implementation, 3) Structured logging with correlation IDs, 4) Health check endpoints and dependency monitoring",
+			"reasoning": "Moderate complexity due to multiple observability tools integration. OpenTelemetry and Prometheus have established patterns but require proper instrumentation across services."
+		},
+		{
+			"taskId": 10,
+			"taskTitle": "Authentication, Authorization, and Security",
+			"complexityScore": 7,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Divide into: 1) OAuth 2.0/OIDC integration setup, 2) RBAC system implementation, 3) JWT and API key middleware, 4) TLS configuration and security headers, 5) Rate limiting and security testing",
+			"reasoning": "High complexity due to security requirements, OAuth integration, and multiple authentication methods. RBAC implementation and security hardening require careful design and testing."
+		}
+	]
+}

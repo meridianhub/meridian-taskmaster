@@ -1,0 +1,93 @@
+{
+	"meta": {
+		"generatedAt": "2025-10-24T17:25:45.657Z",
+		"tasksAnalyzed": 10,
+		"totalTasks": 10,
+		"analysisCount": 10,
+		"thresholdScore": 5,
+		"projectName": "Taskmaster",
+		"usedResearch": true
+	},
+	"complexityAnalysis": [
+		{
+			"taskId": 1,
+			"taskTitle": "Initialize Go Module and Project Structure",
+			"complexityScore": 2,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Break down Go project initialization into: 1) Initialize go.mod with proper module name and Go version, 2) Create standard Go project directory structure (cmd/, internal/, pkg/, api/), 3) Set up Go-specific .gitignore and .env.example files",
+			"reasoning": "Simple setup task requiring standard Go project structure. Low complexity as it follows well-established conventions and requires minimal decision-making."
+		},
+		{
+			"taskId": 2,
+			"taskTitle": "Create Makefile with Essential Build Targets",
+			"complexityScore": 4,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Split Makefile creation into: 1) Create basic targets (build, clean, help), 2) Add testing targets with coverage, 3) Add linting integration, 4) Add Docker build targets, 5) Add deployment and protobuf generation targets",
+			"reasoning": "Moderate complexity due to multiple interconnected targets and need to coordinate with other tools. Requires understanding of Go build process and integration patterns."
+		},
+		{
+			"taskId": 3,
+			"taskTitle": "Configure golangci-lint and Code Quality Tools",
+			"complexityScore": 3,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Divide into: 1) Set up .golangci.yml configuration with appropriate linters and rules, 2) Configure pre-commit hooks for automated enforcement, 3) Integration testing and validation of linting rules",
+			"reasoning": "Moderate-low complexity. Involves configuration files and tool integration but follows standard patterns. Some complexity in choosing appropriate linter rules and exclusions."
+		},
+		{
+			"taskId": 4,
+			"taskTitle": "Create Multi-Stage Dockerfile for Production Images",
+			"complexityScore": 5,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Break into: 1) Create build stage with Go compilation and optimization, 2) Create minimal runtime stage with distroless base, 3) Implement security hardening (non-root user, health checks), 4) Create .dockerignore and optimize image size",
+			"reasoning": "Medium complexity due to multi-stage builds, security considerations, and size optimization requirements. Requires understanding of Docker best practices and Go static compilation."
+		},
+		{
+			"taskId": 5,
+			"taskTitle": "Create Kubernetes Base Manifests",
+			"complexityScore": 6,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Split into: 1) Create Deployment manifest with resource limits and probes, 2) Create Service manifest with proper networking, 3) Create ConfigMap for application configuration, 4) Set up Kustomization base configuration, 5) Implement proper labeling and selector strategy",
+			"reasoning": "Medium-high complexity due to multiple Kubernetes resources that must work together. Requires understanding of K8s networking, resource management, and configuration patterns."
+		},
+		{
+			"taskId": 6,
+			"taskTitle": "Set up Kustomize Overlays for Environments",
+			"complexityScore": 4,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Organize into: 1) Create development overlay with relaxed settings, 2) Create staging overlay with production-like configuration, 3) Create production overlay with strict security and scaling, 4) Validate and test all overlay configurations",
+			"reasoning": "Moderate complexity due to environment-specific configurations and ensuring proper inheritance from base manifests. Requires understanding of Kustomize patching mechanisms."
+		},
+		{
+			"taskId": 7,
+			"taskTitle": "Configure Tilt for Local Development Environment",
+			"complexityScore": 7,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Break down into: 1) Set up CockroachDB with persistent volumes, 2) Configure Redis deployment, 3) Set up Kafka+Zookeeper with Bitnami charts, 4) Implement live reload for Go services, 5) Configure port forwarding and debugging, 6) Optimize rebuild performance and health checks",
+			"reasoning": "High complexity due to orchestrating multiple services, live reload implementation, and performance optimization. Requires deep understanding of Tilt, Kubernetes, and Go development workflow."
+		},
+		{
+			"taskId": 8,
+			"taskTitle": "Create GitHub Actions CI Pipeline",
+			"complexityScore": 6,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Split into: 1) Create test workflow with coverage reporting, 2) Create linting workflow with security scanning, 3) Create build workflow with Docker image publishing, 4) Create deployment workflow with health checks, 5) Configure branch protection and status checks",
+			"reasoning": "Medium-high complexity due to multiple coordinated workflows, secret management, and deployment automation. Requires understanding of GitHub Actions, Docker registries, and deployment strategies."
+		},
+		{
+			"taskId": 9,
+			"taskTitle": "Create Development Setup Documentation",
+			"complexityScore": 3,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Organize into: 1) Write comprehensive README with architecture overview, 2) Create quick start guide and setup scripts, 3) Document development workflow and make targets, 4) Add troubleshooting section and environment configuration guide",
+			"reasoning": "Moderate-low complexity as it's primarily documentation. Some complexity in ensuring accuracy and completeness, plus creating setup automation scripts."
+		},
+		{
+			"taskId": 10,
+			"taskTitle": "Implement Security Scanning and Production Hardening",
+			"complexityScore": 7,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Break into: 1) Integrate Trivy container scanning in CI, 2) Add Gosec Go security analysis, 3) Configure Kubernetes RBAC policies, 4) Implement network policies for production, 5) Set up secret management framework, 6) Configure security contexts and runtime hardening",
+			"reasoning": "High complexity due to multiple security tools, complex Kubernetes security configurations, and need to ensure no security regressions. Requires deep understanding of container and Kubernetes security."
+		}
+	]
+}
