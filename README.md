@@ -83,6 +83,6 @@ git push origin main
 
 ## Related
 
-- **Main Repository**: [bjcoombs/meridian](https://github.com/bjcoombs/meridian)
+- **Main Repository**: [meridianhub/meridian](https://github.com/meridianhub/meridian)
 - **Task Master Documentation**: See `CLAUDE.md` in this repo
 - **Git Remote**: https://github.com/meridianhub/meridian-taskmaster.git
