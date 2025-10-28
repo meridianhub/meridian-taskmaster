@@ -1,5 +1,12 @@
 # Task Master AI - Agent Integration Guide
 
+<!-- SKILL_METADATA
+name: task-master-ai
+description: Task Master AI workflow for managing project tasks, PRDs, and development lifecycle
+keywords: taskmaster, task-master, prd, task management, complexity analysis, subtasks
+applies_to: repositories with .taskmaster directory
+-->
+
 ## Essential Commands
 
 ### Core Workflow Commands
@@ -7,7 +14,7 @@
 ```bash
 # Project Setup
 task-master init                                    # Initialize Task Master in current project
-task-master parse-prd .taskmaster/docs/prd.txt      # Generate tasks from PRD document
+task-master parse-prd .taskmaster/docs/prd.md       # Generate tasks from PRD document
 task-master models --setup                        # Configure AI models interactively
 
 # Daily Development Workflow
@@ -41,8 +48,8 @@ task-master generate                                         # Update task markd
 
 - `.taskmaster/tasks/tasks.json` - Main task data file (auto-managed)
 - `.taskmaster/config.json` - AI model configuration (use `task-master models` to modify)
-- `.taskmaster/docs/prd.txt` - Product Requirements Document for parsing
-- `.taskmaster/tasks/*.txt` - Individual task files (auto-generated from tasks.json)
+- `.taskmaster/docs/prd.md` - Product Requirements Document for parsing
+- `.taskmaster/tasks/*.md` - Individual task files (auto-generated from tasks.json)
 - `.env` - API keys for CLI usage
 
 ### Claude Code Integration Files
@@ -62,11 +69,11 @@ project/
 │   │   ├── task-1.md      # Individual task files
 │   │   └── task-2.md
 │   ├── docs/              # Documentation directory
-│   │   ├── prd.txt        # Product requirements
+│   │   ├── prd.md        # Product requirements
 │   ├── reports/           # Analysis reports directory
 │   │   └── task-complexity-report.json
 │   ├── templates/         # Template files
-│   │   └── example_prd.txt  # Example PRD template
+│   │   └── example_prd.md  # Example PRD template
 │   └── config.json        # AI models & settings
 ├── .claude/
 │   ├── settings.json      # Claude Code configuration
@@ -139,7 +146,7 @@ complexity_report; // = task-master complexity-report
 task-master init
 
 # Create or obtain PRD, then parse it
-task-master parse-prd .taskmaster/docs/prd.txt
+task-master parse-prd .taskmaster/docs/prd.md
 
 # Analyze complexity and expand tasks
 task-master analyze-complexity --research
@@ -306,7 +313,7 @@ task-master models --set-fallback gpt-4o-mini
 
 For large migrations or multi-step processes:
 
-1. Create a markdown PRD file describing the new changes: `touch task-migration-checklist.md` (prds can be .txt or .md)
+1. Create a markdown PRD file describing the new changes: `touch task-migration-checklist.md` (prds should be .md format)
 2. Use Taskmaster to parse the new prd with `task-master parse-prd --append` (also available in MCP)
 3. Use Taskmaster to expand the newly generated tasks into subtasks. Consdier using `analyze-complexity` with the correct --to and --from IDs (the new ids) to identify the ideal subtask amounts for each task. Then expand them.
 4. Work through items systematically, checking them off as completed

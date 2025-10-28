@@ -674,7 +674,7 @@
   "1-infra": {
     "tasks": [
       {
-        "id": 1,
+        "id": "1",
         "title": "Initialize Go Module and Project Structure",
         "description": "Set up the Go module with proper directory structure and initial configuration files",
         "details": "Initialize go.mod with 'github.com/bjcoombs/meridian' module name using Go 1.23+. Create basic project structure with cmd/, internal/, pkg/, and api/ directories. Update .gitignore for Go-specific patterns (vendor/, dist/, *.test, coverage.out). Create .env.example with placeholder environment variables.",
@@ -686,7 +686,7 @@
         "updatedAt": "2025-10-25T11:32:54.517Z"
       },
       {
-        "id": 2,
+        "id": "2",
         "title": "Create Makefile with Essential Build Targets",
         "description": "Implement comprehensive Makefile with all required build, test, and deployment targets",
         "status": "done",
@@ -700,7 +700,7 @@
         "updatedAt": "2025-10-25T11:07:57.061Z"
       },
       {
-        "id": 3,
+        "id": "3",
         "title": "Configure golangci-lint and Code Quality Tools",
         "description": "Set up golangci-lint configuration with strict rules and pre-commit hooks",
         "status": "done",
@@ -714,7 +714,7 @@
         "updatedAt": "2025-10-25T11:08:03.686Z"
       },
       {
-        "id": 4,
+        "id": "4",
         "title": "Create Multi-Stage Dockerfile for Production Images",
         "description": "Build optimized Docker images using multi-stage builds with security scanning",
         "details": "Create Dockerfile with stages: 1) Build stage using golang:1.23-alpine with CGO_ENABLED=0 for static binaries, 2) Runtime stage using gcr.io/distroless/static for minimal attack surface. Copy only necessary files, set non-root user, add health check endpoint. Target image size <50MB. Include .dockerignore to exclude unnecessary files.",
@@ -729,7 +729,7 @@
         "updatedAt": "2025-10-25T11:31:39.741Z"
       },
       {
-        "id": 5,
+        "id": "5",
         "title": "Create Kubernetes Base Manifests",
         "description": "Design Kubernetes manifests for deployments, services, and configuration management",
         "details": "Create deployments/k8s/base/ with: Deployment manifest with proper resource limits (CPU: 100m-500m, Memory: 128Mi-512Mi), liveness/readiness probes on /health endpoint, rolling update strategy. Service manifest with ClusterIP type and proper port mapping. ConfigMap for application configuration. Use kustomization.yaml for base configuration. Include proper labels and selectors.",
@@ -743,7 +743,7 @@
         "updatedAt": "2025-10-25T11:37:39.825Z"
       },
       {
-        "id": 6,
+        "id": "6",
         "title": "Set up Kustomize Overlays for Environments",
         "description": "Create environment-specific configurations using Kustomize overlays",
         "details": "Create overlays for dev/, staging/, production/ in deployments/k8s/overlays/. Dev: increased log levels, resource limits relaxed, single replica. Staging: production-like settings, 2 replicas, monitoring enabled. Production: strict resource limits, 3+ replicas, security policies, network policies. Each overlay includes kustomization.yaml with resource patches and ConfigMap generators.",
@@ -756,7 +756,7 @@
         "subtasks": []
       },
       {
-        "id": 7,
+        "id": "7",
         "title": "Configure Tilt for Local Development Environment",
         "description": "Create Tiltfile orchestrating local Kubernetes development with live reload",
         "details": "Create Tiltfile that deploys: CockroachDB single-node cluster with persistent volume, Redis with default configuration, Kafka+Zookeeper using bitnami charts. Configure live_update for Go services with go build on file changes. Set up port forwarding for debugging. Include resource dependencies and health checks. Target <5 second rebuild time.",
@@ -766,12 +766,12 @@
           "5",
           "2"
         ],
-        "status": "review",
+        "status": "done",
         "subtasks": [],
-        "updatedAt": "2025-10-25T11:49:32.676Z"
+        "updatedAt": "2025-10-27T10:15:44.837Z"
       },
       {
-        "id": 8,
+        "id": "8",
         "title": "Create GitHub Actions CI Pipeline",
         "description": "Implement comprehensive CI/CD workflows for testing, building, and deployment",
         "details": "Create .github/workflows/: test.yml (checkout, setup Go 1.23, run tests with coverage, upload to codecov), lint.yml (golangci-lint, security scan with gosec), build.yml (build Docker images, push to registry with git SHA tags), deploy.yml (deploy to staging/prod with health checks). Include required status checks configuration.",
@@ -786,7 +786,7 @@
         "updatedAt": "2025-10-25T11:38:25.738Z"
       },
       {
-        "id": 9,
+        "id": "9",
         "title": "Create Development Setup Documentation",
         "description": "Write comprehensive README and setup guides for new developers",
         "details": "Create README.md with: project overview, architecture diagram, quick start guide (clone → tilt up in <5 minutes), development workflow, make targets explanation, troubleshooting section. Include setup script for installing dependencies (Docker, kubectl, Tilt, golangci-lint). Document environment variables and configuration options.",
@@ -796,12 +796,12 @@
           "7",
           "2"
         ],
-        "status": "review",
+        "status": "done",
         "subtasks": [],
-        "updatedAt": "2025-10-25T18:45:09.057Z"
+        "updatedAt": "2025-10-27T10:15:42.847Z"
       },
       {
-        "id": 10,
+        "id": "10",
         "title": "Implement Security Scanning and Production Hardening",
         "description": "Add security scanning, vulnerability detection, and production security configurations",
         "details": "Integrate trivy scanning in CI for container vulnerabilities, add gosec for Go security analysis, configure RBAC for Kubernetes deployments, implement network policies for production, set up secret management references (not actual secrets), add security contexts with non-root users and read-only filesystems.",
@@ -818,15 +818,12 @@
     ],
     "metadata": {
       "version": "1.0.0",
-      "lastModified": "2025-10-26T08:43:20.651Z",
+      "lastModified": "2025-10-27T10:15:44.838Z",
       "taskCount": 10,
-      "completedCount": 5,
+      "completedCount": 8,
       "tags": [
         "1-infra"
-      ],
-      "created": "2025-10-26T08:49:59.876Z",
-      "description": "Tasks for 1-infra context",
-      "updated": "2025-10-26T09:16:41.692Z"
+      ]
     }
   },
   "2-api-contracts": {
@@ -1277,13 +1274,14 @@
         "3-platform"
       ],
       "created": "2025-10-26T08:37:37.675Z",
-      "description": "Tasks for 3-platform context"
+      "description": "Tasks for 3-platform context",
+      "updated": "2025-10-26T08:37:37.675Z"
     }
   },
   "4-financial-accounting": {
     "tasks": [
       {
-        "id": "1",
+        "id": 1,
         "title": "Project Setup and Go Module Initialization",
         "description": "Initialize Go module structure with necessary dependencies for the financial accounting service",
         "status": "done",
@@ -1354,7 +1352,7 @@
         "updatedAt": "2025-10-26T09:14:23.990Z"
       },
       {
-        "id": "2",
+        "id": 2,
         "title": "Domain Model Implementation - Core Types",
         "description": "Implement unified domain model using Go structs as single source of truth with GORM and proto tags following ADR-0004",
         "status": "review",
@@ -1415,7 +1413,7 @@
         "updatedAt": "2025-10-26T09:18:15.623Z"
       },
       {
-        "id": "3",
+        "id": 3,
         "title": "FinancialBookingLog Aggregate Root Implementation",
         "description": "Implement the FinancialBookingLog aggregate root with all business methods and invariants",
         "details": "Create domain/financial_booking_log.go with struct containing ID (UUID), FinancialAccountType, ProductServiceRef, BusinessUnitRef, ChartOfAccountsRulesRef, BaseCurrency, Status, CreatedAt, UpdatedAt. Implement methods: Suspend(), Resume(), Close(), CanAcceptPosting(). Add validation for status transitions (active→suspended→active OR active→closed). Ensure base currency is valid ISO-4217 code.",
@@ -1428,7 +1426,7 @@
         "subtasks": []
       },
       {
-        "id": "4",
+        "id": 4,
         "title": "LedgerPosting Entity Implementation",
         "description": "Implement LedgerPosting entity with validation and business rules",
         "details": "Create domain/ledger_posting.go with struct containing ID, BookingLogID, PostingDirection, AccountCode, PostingAmount (Money), PostingValueDate, PostingResult, IdempotencyKey, CreatedAt. Implement Validate() method checking: amount > 0, currency compatibility, value date within 1 year bounds, idempotency key uniqueness per booking log. Add helper methods for currency conversion validation.",
@@ -1441,7 +1439,7 @@
         "subtasks": []
       },
       {
-        "id": "5",
+        "id": 5,
         "title": "Double-Entry Transaction Validation Logic",
         "description": "Implement transaction-level validation ensuring double-entry accounting principles",
         "details": "Create domain/transaction.go with Transaction struct containing slice of LedgerPosting and IdempotencyKey. Implement Validate() method: ensure minimum 2 postings, at least 1 debit and 1 credit, sum of debits equals sum of credits using decimal arithmetic. Add ValidateDoubleEntry function for posting slice validation. Include multi-currency support with exchange rate validation. Handle decimal precision for money calculations.",
@@ -1454,7 +1452,7 @@
         "subtasks": []
       },
       {
-        "id": "6",
+        "id": 6,
         "title": "Repository Interface and Database Schema",
         "description": "Define repository interfaces and implement PostgreSQL database schema",
         "details": "Create repository/interfaces.go with FinancialBookingLogRepository and LedgerPostingRepository interfaces as specified in PRD. Implement database schema with migrations: financial_booking_logs table with UUID primary key, enum constraints, timestamps; ledger_postings table with foreign key to booking logs, amount stored as bigint with decimal places, unique constraint on (booking_log_id, idempotency_key). Add indexes for performance: booking_log_id, idempotency_key, posting_value_date.",
@@ -1467,7 +1465,7 @@
         "subtasks": []
       },
       {
-        "id": "7",
+        "id": 7,
         "title": "PostgreSQL Repository Implementation",
         "description": "Implement concrete repository classes for PostgreSQL persistence",
         "details": "Create repository/postgres/ package with concrete implementations of repository interfaces. Implement FinancialBookingLogRepository: Create, FindByID, Update, List with filtering. Implement LedgerPostingRepository: CreatePostings (batch insert), FindByID, FindByBookingLogID, FindByIdempotencyKey. Use database/sql with prepared statements, proper error handling, and transaction support. Include connection pooling configuration.",
@@ -1480,7 +1478,7 @@
         "subtasks": []
       },
       {
-        "id": "8",
+        "id": 8,
         "title": "gRPC Protocol Buffer Definitions",
         "description": "Create protobuf definitions for financial accounting service API following ADR-0004 Event Schema Evolution Strategy",
         "status": "pending",
@@ -1563,7 +1561,7 @@
         ]
       },
       {
-        "id": "9",
+        "id": 9,
         "title": "gRPC Service Implementation",
         "description": "Implement the financial accounting gRPC service with all business operations",
         "details": "Create service/financial_accounting_service.go implementing the gRPC service interface. Include financialAccountingService struct with bookingLogRepo, postingRepo, eventPublisher, idempotencyChecker dependencies. Implement CaptureLedgerPosting with full workflow: idempotency check, double-entry validation, chart of accounts validation, transactional posting storage, domain event publishing. Implement all other service methods according to BIAN specification. Add proper error handling and status codes.",
@@ -1577,7 +1575,7 @@
         "subtasks": []
       },
       {
-        "id": "10",
+        "id": 10,
         "title": "Comprehensive Testing and Documentation",
         "description": "Complete test coverage, performance validation, and integration testing",
         "details": "Achieve >95% test coverage for domain logic. Implement property-based testing for double-entry invariants using testing/quick or third-party library. Create chaos testing for concurrent posting scenarios. Set up performance benchmarks targeting P99 < 50ms for transaction posting. Create integration tests covering full end-to-end workflows. Add comprehensive error handling and logging. Document API usage with examples and common patterns.",
@@ -1597,7 +1595,10 @@
       "completedCount": 1,
       "tags": [
         "4-financial-accounting"
-      ]
+      ],
+      "created": "2025-10-27T10:13:36.410Z",
+      "description": "Tasks for 4-financial-accounting context",
+      "updated": "2025-10-27T10:13:36.410Z"
     }
   },
   "5-position-keeping": {
